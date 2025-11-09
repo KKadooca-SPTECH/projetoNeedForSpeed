@@ -1,0 +1,26 @@
+* {
+    padding: 0px;
+}
+
+body {
+    background-color: #161616;
+}
+
+.main .head {
+    display: flex;
+    flex-direction: column;
+}
+
+.main .head .grey-head {
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.main .head .grey-head img {
+    
+}
+
+.main .head .black-head {
+
+}
