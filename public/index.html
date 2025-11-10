@@ -5,114 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Need For Speed</title>
     <link rel="stylesheet" href="style/style.css">
+
 </head>
 <body>
 
     <div class="main">
 
         <!-- ===== HEADER ====== -->
-        <div class="head">
+        <div class="header">
             <div class="grey-head">
-                <img src="./assets/material-icons/account_sem_fundo.png" alt="">
-                <p class="help-icon">help</p>
-                <img src="./assets/logos/logo_letra_branca-sem_fundo.png" alt="Logo_NFS">
+                <a href="#"><img class="shortcut_header" src="./assets/material-icons/account_sem_fundo.png" alt="account_sem_fundo"></a>
+                <a href="#"><img class="shortcut_header" src="./assets/material-icons/help_sem_fundo.png" alt="help_sem_fundo"></a>
+                <a href="#"><img class="logo-header" src="./assets/logos/logo_letra_branca-sem_fundo.png" alt="Logo_NFS"></a>
             </div>
+
             <div class="black-head">
-                <p class="poppins">Home</p>
-                <p class="poppins">Jogos</p>
-                <p class="poppins">Avaliações</p>
-                <p class="poppins">Quiz</p>
+                <a id="home" href="#">Home</a>
+                <a id="jogos" href="allgames.html">Jogos</a>
+                <a id="avaliacoes" href="#">Avaliações</a>
+                <a id="quiz" href="#">Quiz</a>
             </div>
         </div>
 
         <!-- ===== BANNER ===== -->
-        <div main="main-banner">
-            <img src="./assets/banners/banner.jpg" alt="Banner_NFS" id="home_banner">
+        <div class="banner">
+            <img class="img-banner" src="./assets/banners/banner.jpg" alt="Banner_NFS">
         </div>
 
         <!-- ===== MAIN GAMES ===== -->
-        <div class="main-games">
-            <h2 class="title">Need For Speed: Principais jogos da saga</h2>
-                <div class="top3">
+        <section class="main-games">
+                
+            <div class="title">
+                <h2>Need For Speed: Principais jogos da saga</h2>
+            </div>
+
+                <div class="top3-pt1">
                     <div class="games">
                         <img src="./assets/capas/capa_nfs_1994.png" alt="capa_nfs_1994">
-                        <p id="text" class="poppins">Need For Speed</p>
-                        <p id="sub-text" class="poppins">(1994)</p>
+                        <p id="text" class="game-name">Need For Speed</p>
+                        <p id="sub-text">(1994)</p>
                     </div>
+
                     <div class="games">
                         <img src="./assets/capas/capa_nfs_underground.jpg" alt="capa_nfs_underground">
-                        <p id="text" class="poppins">Need For Speed:</p>
-                        <p id="sub-text" class="poppins">Underground</p>
+                        <p id="text" class="game-name">Need For Speed:</p>
+                        <p id="sub-text">Underground</p>
                     </div>
+                
                     <div class="games">
                         <img src="./assets/capas/capa_nfs_underground_2.jpg" alt="capa_nfs_underground_2">
-                        <p id="text" class="poppins">Need For Speed:</p>
-                        <p id="sub-text" class="poppins">Underground 2</p>
+                        <p id="text" class="game-name">Need For Speed:</p>
+                        <p id="sub-text">Underground 2</p>
                     </div> 
-                    <div class="top3">
-                        <div class="games">
-                            <img src="./assets/capas/capa_nfs_most_wanted.jpg" alt="capa_nfs_most_wanted">
-                            <p id="text" class="poppins">Need For Speed:</p>
-                            <p id="sub-text" class="poppins">Most Wanted</p>
-                        </div> 
-                        <div class="games">
-                            <img src="./assets/capas/capa_nfs_shift.jpeg" alt="capa_nfs_shift">
-                            <p id="text" class="poppins">Need For Speed:</p>
-                            <p id="sub-text" class="poppins">Shift</p>
-                        </div> 
-                        <div class="games">
-                            <img src="./assets/capas/capa_nfs_hot_pursuit.jpg" alt="capa_nfs_hot_pursuit">
-                            <p id="text" class="poppins">Need For Speed:</p>
-                            <p id="sub-text" class="poppins">Hot Pursuit</p>
-                        </div> 
+
+                <div class="top3-pt2">
+                    <div class="games">
+                        <img src="./assets/capas/capa_nfs_most_wanted.jpg" alt="capa_nfs_most_wanted">
+                        <p id="text" class="game-name">Need For Speed:</p>
+                        <p id="sub-text">Most Wanted</p>
+                    </div> 
+
+                    <div class="games">
+                        <img src="./assets/capas/capa_nfs_shift.jpeg" alt="capa_nfs_shift">
+                        <p id="text" class="game-name">Need For Speed:</p>
+                        <p id="sub-text">Shift</p>
                     </div>
+
+                    <div class="games">
+                        <img src="./assets/capas/capa_nfs_hot_pursuit.jpg" alt="capa_nfs_hot_pursuit">
+                        <p id="text" class="game-name">Need For Speed:</p>
+                        <p id="sub-text">Hot Pursuit</p>
+                    </div> 
                 </div>
-            <div class="button-games">
-                <input type="button" href="allgames.html" value="Veja mais">
             </div>
-        </div>
+            
+            <div class="button-games">
+                <a href="allgames.html"><button class="button-games">VER MAIS</button></a>
+            </div>
+
+        </section>
+
 
         <!-- ===== SAGA HISTORY ===== -->
         <div class="saga-history">
-            <p class="title">Conheça a história da saga</p>
-                <div class="saga-1">
-                    <h1 class="return-carousel">←</h1>
-                        <div class="display">
-                            <h3 class="sub-title">Como surgiu</h3>
-                            <p class="poppins">Surgida a partir de um investimento da revista norte-americana 
-                                Road & Track, a franquia Need for Speed teve seu primeiro título lançado em 
-                                agosto de 1994 pela desenvolvedora Electronic Arts (EA). O estilo excêntrico 
-                                das corridas de rua aliado ao visual realista rapidamente conquistou o público, 
-                                especialmente pelo surgimento das lan houses e pela popularização da subcultura 
-                                do automobilismo.</p>
-                        </div>
-                    <h1 class="forward-carousel">→</h1>
+            <h2>Conheça a história da saga</h2>
+                <div class="sagas">
+                    <div class="saga-1">
+                        <h3 class="sub-title">Como surgiu</h3>
+                            <div class="carousel-1">
+                                <input type="button" class="arrow left" onclick="return1()" value="←" disabled>
+                                    <div class="carousel-text">
+                                    <p>     Surgida a partir de um investimento da revista norte-americana 
+                                            Road & Track, a franquia Need for Speed teve seu primeiro título lançado em 
+                                            agosto de 1994 pela desenvolvedora Electronic Arts (EA). O estilo excêntrico 
+                                            das corridas de rua aliado ao visual realista rapidamente conquistou o público, 
+                                            especialmente pelo surgimento das lan houses e pela popularização da subcultura 
+                                            do automobilismo.</p>
+                                    </div>
+                                <input type="button" class="arrow right" onclick="forward1()" value="→">
+                            </div>
+                    </div>
+                    <div class="saga-2">
+                        <h3 class="sub-title">Crescimento</h3>
+                            <div class="carousel-2">
+                                <input type="button" class="arrow left" onclick="return2()" value="←">
+                                    <div class="carousel-text">
+                                    <p>     Desde então, os jogos da série Need for Speed têm sido amplamente 
+                                            bem recebidos pela crítica e pelo público, consolidando-se como uma das franquias 
+                                            mais bem-sucedidas da história dos videogames. A série tornou-se referência no 
+                                            gênero de corrida, chegando inclusive a inspirar uma adaptação cinematográfica 
+                                            homônima.</p>
+                                    </div>
+                                <input type="button" class="arrow right" onclick="forward2()" value="→">
+                            </div>
+                    </div>
+                    <div class="saga-3">
+                        <h3 class="sub-title">Faturamento</h3>
+                            <div class="carousel-3">
+                                <input type="button" class="arrow left" onclick="return3()" value="←">
+                                    <div class="carousel-text">
+                                    <p>     De acordo com dados da Games Learning Society, o faturamento total 
+                                        da franquia ultrapassa 1,9 bilhão de dólares, ocupando a quarta posição entre os 
+                                        jogos mais vendidos da EA. O título de maior sucesso comercial é Need for Speed: 
+                                        Most Wanted (2005), com mais de 723 mil unidades vendidas e o surgimento de um 
+                                        dos carros mais icônicos da série: o BMW M3 GTR (E46), de 2001.</p>
+                                    </div>
+                                <input type="button" id="forward3" class="arrow right" onclick="forward3()" value="→" disabled>
+                            </div>
+                    </div>
                 </div>
-                <div class="saga-2">
-                    <h1 class="return-carousel">←</h1>
-                        <div class="display">
-                            <h3 class="sub-title">Crescimento</h3>
-                            <p class="poppins">Desde então, os jogos da série Need for Speed têm sido amplamente 
-                                bem recebidos pela crítica e pelo público, consolidando-se como uma das franquias 
-                                mais bem-sucedidas da história dos videogames. A série tornou-se referência no 
-                                gênero de corrida, chegando inclusive a inspirar uma adaptação cinematográfica 
-                                homônima.</p>
-                        </div>
-                    <h1 class="forward-carousel">→</h1>
-                </div>
-                <div class="saga-3">
-                    <h1 class="return-carousel">←</h1>
-                        <div class="display">
-                            <h3 class="sub-title">Faturamento</h3>
-                            <p class="poppins">De acordo com dados da Games Learning Society, o faturamento total 
-                                da franquia ultrapassa 1,9 bilhão de dólares, ocupando a quarta posição entre os 
-                                jogos mais vendidos da EA. O título de maior sucesso comercial é Need for Speed: 
-                                Most Wanted (2005), com mais de 723 mil unidades vendidas e o surgimento de um 
-                                dos carros mais icônicos da série: o BMW M3 GTR (E46), de 2001.</p>
-                        </div>
-                    <h1 class="forward-carousel">→</h1>
-                </div>
-        </div>
+            </div>
 
         <div class="footer">
             <img src="./assets/logos/logo_letra_preta-sem_fundo.png" alt="logo_NFS">
@@ -123,3 +145,6 @@
 
 </body>
 </html>
+
+    <!-- ===== LINK HTML & JAVASCRIPT ===== -->
+    <script src="script/home.js" async></script>
