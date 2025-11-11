@@ -1,0 +1,80 @@
+/* ===== ALL-GAMES ===== */
+.all-games {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 900px;
+    width: 100%;
+    background-color: #000;
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: 3px solid #F2E601;
+}
+
+.games {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #161616;
+    height: 290px;
+    width: 230px;
+    border-radius: 20px;
+}
+
+.top3-pt1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.top3-pt2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+}
+
+.all-games img {
+    height: 220px;
+    width: auto;
+    border: 1px solid #F4F4F4;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.all-games .games:hover {
+    transform: scale(1.1);
+}
+
+.game-name {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.button-games {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #F2E601;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    height: 38px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.button-games:hover {
+    transform: scale(1.02);
+}
