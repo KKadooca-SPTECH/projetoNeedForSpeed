@@ -1,0 +1,215 @@
+/* ===== BANNER ===== */
+.banner {
+    width: 100%;
+    height: 610px;
+    background-color: #000;
+}
+
+.img-banner {
+    width: 100%;
+    height: 95%;
+    display: block;
+}
+
+/* ===== MAIN-GAMES ===== */
+.main-games {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 900px;
+    width: 100%;
+    background-color: #000;
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: 3px solid #F2E601;
+}
+
+.games {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #161616;
+    height: 290px;
+    width: 230px;
+    border-radius: 20px;
+}
+
+.top3-pt1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.top3-pt2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+}
+
+.main-games img {
+    height: 220px;
+    width: auto;
+    border: 1px solid #F4F4F4;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.main-games .games:hover {
+    transform: scale(1.1);
+}
+
+.game-name {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.button-games {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #F2E601;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    height: 38px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.button-games:hover {
+    transform: scale(1.02);
+}
+
+/* ===== CAROUSEL ===== */
+.saga-history {
+    align-items: center;
+    color: #F4F4F4;
+    height: auto;
+    width: 100%;
+    padding: 40px 40px;
+    margin-bottom: 50px;
+}
+
+.sagas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.saga-1 {
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    height: 500px;
+    width: 70%;
+    padding: 40px 0;
+    border-radius: 15px;
+    margin-bottom: 2px;
+}
+
+.saga-2 {
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+    height: 500px;
+    width: 70%;
+    padding: 40px 0;
+    border-radius: 15px;
+    margin-bottom: 2px;
+}
+
+.saga-3 {
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+    height: 500px;
+    width: 70%;
+    padding: 40px 0;
+    border-radius: 15px;
+    margin-bottom: 2px;
+}
+
+.carousel-1, .carousel-2, .carousel-3 {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.carousel-text {
+    width: 60%;
+    word-spacing: 2px;
+    font-size: 1.3em;
+}
+
+.carousel-1, .carousel-2, .carousel-3 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+}
+
+.arrow.left  { left: 25px; }
+.arrow.right { right: 25px; }
+
+.arrow:hover {
+    color: #F2E601;
+}
+
+.arrow:disabled {
+  color: gray;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 170px;
+    width: 100%;    
+    background-color: #F4F4F4;
+    bottom: 0;
+}
+
+.footer img {
+    margin-top: 4vh;
+    height: 100px;
+    width: 160px;
+}
+
+.footer .mini-poppins {
+    color: #000;
+}
