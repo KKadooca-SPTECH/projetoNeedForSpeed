@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Need For Speed</title>
-    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/register.css">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
@@ -30,15 +30,21 @@
          <div class="geral">
 
             <div class="image">
-                <img src="assets/carros/bg_login.PNG" alt="nissan_350z">
+                <img src="assets/carros/bg_cadastro.PNG" alt="nissan_350z">
             </div>
 
             <div class="content">
+
                 <div class="inputs">
 
+                    <div class="username">
+                        <p>Nome de usuário: </p>
+                        <input type="text" name="" placeholder="Insira seu nome" maxlength="15" id="input_name">
+                    </div>
+                    
                     <div class="email">
                         <p>Email: </p>
-                        <input type="email" name="" placeholder="Insira seu e-mail" maxlength="45" id="input_email">
+                        <input type="email" name="" placeholder="Insira seu e-mail" maxlength="40" id="input_email">
                     </div>
 
                     <div class="password">
@@ -46,12 +52,22 @@
                         <input type="password" name="" placeholder="Insira sua senha" maxlength="40" id="input_password">
                     </div>
 
+                    <div class="password_confirm">
+                        <p>Confirmar senha: </p>
+                        <input type="password" name="" placeholder="Insira novamente sua senha" maxlength="40" id="input_confirmation">
+                    </div>
+
+                    <div class="phone">
+                        <p>Telefone: </p>
+                        <input type="number" name="" placeholder="11XXXXXXXXX" maxlength="11" id="input_phone">
+                    </div>
+
                 </div>
 
                 <div class="button">
-                    <input type="button" value="LOGIN">
+                    <input type="button" value="CADASTRE-SE">
                     <img src="assets/material-icons/rodape_possui_conta.PNG" alt="">
-                    <input type="button" onclick="register()" value="CADASTRE-SE">
+                    <input type="button" onclick="login()" value="LOGIN">
                 </div>
 
             </div>
@@ -63,4 +79,4 @@
 </html>
 
     <!-- ===== LINK HTML & JAVASCRIPT ===== -->
-    <script src="script/login.js"></script>
+    <script src="script/register.js"></script>
