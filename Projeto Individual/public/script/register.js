@@ -21,13 +21,15 @@ function login() {
       confirmacaoSenhaVar == ""
     ) {
 
-      alert("Erro: todos os campos devem estar preenchidos!");
+      alert("Erro: todos os campos devem ser preenchidos!");
       return false;
 
     } else if ( nomeTrim != nomeVar ) {
         alert("Erro: o nickname inserido é inválido!")
     } else if ( !emailVar.includes('@') ) {
         alert("Erro: o email deve conter '@'");
+    } else if ( !emailVar.includes('.') ) {
+        alert("Erro: insira um endereço de email válido!");
     } else if ( senhaVar != confirmacaoSenhaVar ) {
         alert("Erro: As senhas não confirmam!");
     } else if ( 
