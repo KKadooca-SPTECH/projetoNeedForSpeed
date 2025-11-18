@@ -20,7 +20,6 @@ Este projeto tem como objetivo implementar uma interface interativa inspirada na
 - **Git & GitHub**
 - **Visual Studio Code**
 - **MySQL Workbench 8.0 CE**
-- 
 
 ---
 
