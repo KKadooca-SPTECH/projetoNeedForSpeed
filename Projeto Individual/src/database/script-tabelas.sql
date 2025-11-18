@@ -1,11 +1,17 @@
 CREATE DATABASE NFS;
+
+CREATE USER 'needforspeed'@'localhost' IDENTIFIED BY "!NeedForSpeed100";
+GRANT SELECT ON NFS.* TO 'needforspeed'@'localhost';
+GRANT INSERT ON NFS.* TO 'needforspeed'@'localhost';
+FLUSH PRIVILEGES;
+
 USE NFS;
 
 CREATE TABLE usuario (
 	idUser INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(15) NOT NULL UNIQUE,
     email VARCHAR(40) NOT NULL UNIQUE,
-    senha VARCHAR(40) NOT NULL UNIQUE
+    senha VARCHAR(40) NOT NULL
 );
 
 CREATE TABLE chamado (
