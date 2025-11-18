@@ -1,7 +1,7 @@
 # 🏎️ Projeto Need For Speed – SPTech
 
-Bem-vindo ao repositório do projeto **Need For Speed**, desenvolvido como parte das atividades da **São Paulo Tech School**.
-Este projeto tem como objetivo simular uma interface inspirada na temática de corrida, trazendo elementos visuais modernos, efeitos e estilo que remetem ao universo **Need For Speed**.
+Bem-vindo ao repositório do projeto **Need For Speed**, desenvolvido para entrega do Projeto Individual da **São Paulo Tech School**.
+Este projeto tem como objetivo implementar uma interface interativa inspirada na temática de corrida, trazendo elementos visuais modernos, efeitos e estilo que remetem ao universo **Need For Speed**.
 
 ---
 
