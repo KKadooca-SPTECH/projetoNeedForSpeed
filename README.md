@@ -13,12 +13,13 @@ Este projeto tem como objetivo implementar uma interface interativa inspirada na
 - **Chart.js**
 - **MySQL**
 
+---
+
 ## 🛠️ Ferramentas Utilizadas
 
 - **Git & GitHub**
 - **Visual Studio Code**
 - **MySQL Workbench 8.0 CE**
-- 
 
 ---
 
