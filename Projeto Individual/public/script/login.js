@@ -28,7 +28,6 @@ function login() {
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
                 console.log(resposta);
@@ -38,6 +37,21 @@ function login() {
                     sessionStorage.EMAIL_USUARIO = json[0].email;
                     sessionStorage.NOME_USUARIO = json[0].nome;
                 });
+
+                if (sessionStorage.EMAIL_USUARIO.includes("@suporte.nfs")) {
+                    alert("Cadastro realizado com sucesso! Redirecionando para a dashboard...");
+
+                    setTimeout(() => {
+                        window.location = "dashboard.html";
+                    }, "2000");
+                } else {
+                    alert("Cadastro realizado com sucesso! Redirecionando para os jogos...");
+
+                    setTimeout(() => {
+                     // window.location = "quiz.html";
+                        window.location = "dashboard.html";
+                    }, "2000");
+                }
 
             } else {
 
