@@ -5,7 +5,7 @@
 }
 
 html, body {
-    min-height: 100vh;
+    height: 100vh;
     background-color: #161616;
     font-family: 'Poppins', sans-serif;
 }
@@ -28,6 +28,13 @@ h2 {
     color: #F4F4F4;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.6em;
+    padding-bottom: 70px;
+}
+
+h3 {
+    color: #F4F4F4;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.3em;
     padding-bottom: 70px;
 }
 
@@ -98,6 +105,31 @@ a {
 }
 
 .black-head a:hover {
+    color: #c256d3;
+}
+
+/* ===== DASH BLACK-HEAD ===== */
+.dash-black-head {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #0e0e0e;
+    height: 60px;
+    width: 100%;
+    gap: 40px;
+    border-bottom: 7px solid #F2E601;
+}
+
+.dash-black-head a {
+    color: #fff;
+    margin-left: 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.dash-black-head a:hover {
     color: #c256d3;
 }
 
