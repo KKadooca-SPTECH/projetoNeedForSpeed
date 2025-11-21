@@ -1,10 +1,9 @@
-CREATE DATABASE NFS;
-
-CREATE USER 'needforspeed'@'localhost' IDENTIFIED BY "!NeedForSpeed100";
-GRANT SELECT ON NFS.* TO 'needforspeed'@'localhost';
-GRANT INSERT ON NFS.* TO 'needforspeed'@'localhost';
+CREATE USER 'NFS'@'%' IDENTIFIED BY "!NeedForSpeed100";
+GRANT SELECT ON NFS.* TO 'NFS'@'%';
+GRANT INSERT ON NFS.* TO 'NFS'@'%';
 FLUSH PRIVILEGES;
 
+CREATE DATABASE NFS;
 USE NFS;
 
 CREATE TABLE usuario (
