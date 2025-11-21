@@ -3,9 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projeto Need For Speed</title>
+    
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/dashboard.css">
+
 </head>
 <body>
+
+<div class="main">
+
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+        <div class="dash-black-head">
+            <a href="#"><img class="shortcut_header" src="./assets/material-icons/help_sem_fundo.png" alt="help_sem_fundo"></a>
+            <a href="index.html"><img class="logo-header" src="./assets/logos/logo_letra_branca-sem_fundo.png" alt="Logo_NFS"></a>
+        </div>
+
+    <!-- ===== SIDE BAR ===== -->
+     <div class="content">
+        <div class="sidebar">
+            <div class="banner">
+                <img src="assets/banners/background_gif.gif" alt="unbound_gif">
+            </div>
+
+            <div class="text">
+                <div class="welcome">
+                    <h3>Seja bem vindo,<br><div id="username">teste</div></h3>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <a href="#"><div class="quiz">Quiz</div></a>
+
+                <a href="#"><div class="jogomemoria">Jogo da Memória</div></a>
+            </div>
+ 
+            <div class="logo-sidebar">
+                <img src="assets/logos/logo_letra_branca-sem_fundo.png" alt="logo_letra_branca-sem_fundo">
+            </div>
+
+     </div>
+
+     <!-- ===== DASHBOARD QUIZ ===== -->
+        <!-- === KPIs QUIZ === -->
+     <div class="dash-geral">
+        <div class="dash-quiz">
+            <div class="kpi-1">
+                <div class="kpi-quiz">
+                    <p>KPI's - Quiz</p>
+                </div>
+
+                <div class="kpi-correct-asw">
+                    <p class="text">Acertos:</p>
+                    <p class="number">111</p>
+                </div>
+
+                <div class="kpi-wrong-asw">
+                    <p class="text">Erros:</p>
+                    <p class="number">111</p>
+                </div>
+            </div>
+
+            <!-- === GRAPHS QUIZ === -->
+            <div class="graph-quiz">
+                <h1>Gráfico 1: Média de acertos no quiz</h1>
+                <canvas id="graph1"></canvas>
+            </div>
+
+        </div>
+
+        <!-- ===== DASHBOARD JOGO DA MEMÓRIA ===== -->
+        <div class="dash-jogomemoria">
+            <div class="kpi-2">
+                <div class="kpi-jogomemoria">
+                    <p>KPIs - Jogo da <br>Memória</p>
+                </div>
+
+                <div class="kpi-correct-asw">
+                    <p class="text">Vitórias</p>
+                    <p class="number">111</p>
+                </div>
+
+                <div class="kpi-wrong-asw">
+                    <p class="text">Derrotas</p>
+                    <p class="number">111</p>
+                </div>
+            </div>
+
+            <!-- === GRAPHS QUIZ === -->
+            <div class="graph-quiz">
+                <h1>Gráfico 2: Vitórias e derrotas -<br>Jogo da Memória</h1>
+                <canvas id="graph2"></canvas>
+            </div>
+     </div>
+
+     </div>
     
+     </div>
+    
+</div>
+
 </body>
 </html>
+
+    <!-- ===== LINK HTML & JAVASCRIPT ===== -->
+    <script src="script/dashboard.js"></script>
