@@ -2,6 +2,26 @@ function register() {
     window.location.href = 'register.html'
 }
 
+/* ===== REDIRECT TO THE QUIZ ===== */
+    function redirect_quiz() {
+
+      if (sessionStorage.ID_USUARIO == null) {
+
+        setTimeout(() => {
+          alert("Você deve estar logado antes de responder ao quiz! Redirecionando ao login...");
+
+            window.location = "login.html";
+        }, "2000");
+
+      } else {
+
+        setTimeout(() => {
+            window.location = "quiz.html";
+        }, "2000");
+
+      }
+    }
+
 function login() {
 
         var emailVar = input_email.value;
@@ -34,22 +54,22 @@ function login() {
 
                 resposta.json().then(json => {
                     console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json[0].email;
-                    sessionStorage.NOME_USUARIO = json[0].nome;
+                    sessionStorage.ID_USUARIO = json.idUser;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
                 });
 
-                if (sessionStorage.EMAIL_USUARIO.includes("@suporte.nfs")) {
-                    alert("Cadastro realizado com sucesso! Redirecionando para a dashboard...");
+                if (emailVar.includes("@suporte.nfs")) {
+                    alert("Login realizado com sucesso! Redirecionando para a dashboard...");
 
                     setTimeout(() => {
                         window.location = "dashboard.html";
                     }, "2000");
                 } else {
-                    alert("Cadastro realizado com sucesso! Redirecionando para os jogos...");
+                    alert("Login realizado com sucesso! Redirecionando para os jogos...");
 
                     setTimeout(() => {
-                     // window.location = "quiz.html";
-                        window.location = "dashboard.html";
+                        window.location = "quiz.html";
                     }, "2000");
                 }
 
@@ -63,7 +83,7 @@ function login() {
             }
 
         }).catch(function (erro) {
-            console.log(erro);
+            alert(erro);
         })
 
         return false;
