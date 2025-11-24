@@ -29,16 +29,15 @@ CREATE TABLE chamado (
 
 CREATE TABLE quiz (
 	idQuiz INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(45),
-    acertos INT
+    titulo VARCHAR(45)
 );
 
 CREATE TABLE tentativasQuiz (
 	idUser INT,
     idQuiz INT,
     tentativas INT,
-    vitorias INT,
-    desistencias INT,
+    acertos INT,
+    erros INT,
     PRIMARY KEY (idUser, idQuiz),
 		FOREIGN KEY (idUser)
 			REFERENCES usuario(idUser),
