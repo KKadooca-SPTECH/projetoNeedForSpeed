@@ -32,6 +32,9 @@ CREATE TABLE quiz (
     titulo VARCHAR(45)
 );
 
+INSERT INTO quiz (titulo) VALUES
+	('Quiz #1');
+
 CREATE TABLE tentativasQuiz (
 	idUser INT,
     idQuiz INT,
@@ -47,12 +50,24 @@ CREATE TABLE tentativasQuiz (
 
 CREATE TABLE questao (
 	idQuestao INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(45),
+    titulo VARCHAR(255),
     pontuacao INT,
     idQuiz INT,
 		FOREIGN KEY (idQuiz)
 			REFERENCES quiz(idQuiz)
 );
+
+INSERT INTO questao (titulo,pontuacao,idQuiz) VALUES
+	('Em que ano foi lançado o primeiro exemplar da saga Need For Speed?',1,1),
+	('Qual foi o último Need For Speed lançado pela Electronic Arts?',1,1),
+	('Como surgiu a saga Need For Speed?',1,1),
+	('Qual o faturamento aproximado de toda a franquia, de acordo com a Games Learning Society?',1,1),
+	('A qual jogo da franquia pertence a BMW M3 GTR (E46) modelo 2001 da imagem ao lado?',1,1),
+	('Quantos jogos da saga Need For Speed foram publicados até hoje?',1,1),
+	('Qual o jogo mais bem avaliado da franquia?',1,1),
+	('Qual dos seguintes jogos se passa totalmente no período noturno?',1,1),
+	('Em qual jogo da franquia surgiu, nos consoles, o modo de perseguição, onde você poderia ser optar por ser o policial ou o criminoso?',1,1),
+	('A qual jogo da franquia pertence o banner ao lado?',1,1),
 
 CREATE TABLE alternativas (
 	idAlternativa INT AUTO_INCREMENT,
@@ -63,11 +78,62 @@ CREATE TABLE alternativas (
 			REFERENCES questao(idQuestao),
 		FOREIGN KEY (idQuiz)
 			REFERENCES quiz(idQuiz),
-    titulo VARCHAR(45),
-    status_alternativas TINYINT,
+    titulo VARCHAR(150),
+    status_alternativa TINYINT,
 		CONSTRAINT chk_statusAlternativas
 			CHECK(status_alternativas IN(0,1)) -- Incorreta: 0 // Correta: 1
 );
+
+INSERT INTO alternativas (idQuestao,idQuiz,titulo,status_alternativa) VALUES
+	('1','1','1995','0'),
+	('1','1','1994','1'),
+	('1','1','1990','0'),
+	('1','1','2005','0'),
+
+	('2','1','The Need For Speed','0'),
+	('2','1','Need For Speed: Shift','0'),
+	('2','1','Need For Speed: Underground 2','0'),
+	('2','1','Need For Speed: Unbound','1'),
+
+	('3','1','A partir do investimento de uma revista de carros','1'),
+	('3','1','Com o lançamento do Toyota Supra MK4','0'),
+	('3','1','A partir da ideia de um desenvolvedor da Electronic Arts','0'),
+	('3','1','Após Trip Halkins - fundador da Electronic Arts - visitar o Japão','0'),
+
+	('4','1','$ 2.4 bilhões','0'),
+	('4','1','$ 1.1 bilhão','0'),
+	('4','1','$ 2.3 bilhões','0'),
+	('4','1','$ 1.9 bilhão','1'),
+
+	('5','1','Need For Speed: Most Wanted (2005)','1'),
+	('5','1','Need For Speed: Underground 2','0'),
+	('5','1','Need For Speed: Most Wanted (2012)','0'),
+	('5','1','Need For Speed™ (2015)','0'),
+
+	('6','1','30','0'),
+	('6','1','18','0'),
+	('6','1','27','1'),
+	('6','1','24','0'),
+
+	('7','1','Need For Speed™ (2015)','0'),
+	('7','1','Need For Speed: Most Wanted (2005)','1'),
+	('7','1','Need For Speed: Underground 2','0'),
+	('7','1','Need For Speed: Heat','0'),
+	
+	('8','1','Need For Speed: Unbound','0'),
+	('8','1','Need For Speed™ (2015)','1'),
+	('8','1','Need For Speed: V-Rally','0'),
+	('8','1','Need For Speed: V-Rally 2','0'),
+	
+	('9','1','Need For Speed: High Stakes','0'),
+	('9','1','Need For Speed: Carbon','0'),
+	('9','1','Need For Speed 2 (1997)','0'),
+	('9','1','Need For Speed III: Hot Pursuit','1'),
+	
+	('10','1','Need For Speed III: Hot Pursuit','0'),
+	('10','1','Need For Speed: Unbound','1'),
+	('10','1','Need For Speed: Nitro','0'),
+	('10','1','Nenhuma das anteriores','0');
 
 CREATE TABLE jogoMemoria (
 	idJogoMemoria INT PRIMARY KEY AUTO_INCREMENT,
