@@ -80,8 +80,7 @@ CREATE TABLE alternativas (
 			REFERENCES quiz(idQuiz),
     titulo VARCHAR(150),
     status_alternativa TINYINT,
-		CONSTRAINT chk_statusAlternativas
-			CHECK(status_alternativas IN(0,1)) -- Incorreta: 0 // Correta: 1
+			CHECK(status_alternativa IN(0,1)) -- Incorreta: 0 // Correta: 1
 );
 
 INSERT INTO alternativas (idQuestao,idQuiz,titulo,status_alternativa) VALUES
@@ -135,6 +134,8 @@ INSERT INTO alternativas (idQuestao,idQuiz,titulo,status_alternativa) VALUES
 	('10','1','Need For Speed: Nitro','0'),
 	('10','1','Nenhuma das anteriores','0');
 
+/*
+
 CREATE TABLE jogoMemoria (
 	idJogoMemoria INT PRIMARY KEY AUTO_INCREMENT,
     dificuldade TINYINT,
@@ -165,3 +166,5 @@ CREATE TABLE imagem (
 		FOREIGN KEY (fkJogoMemoria)
 			REFERENCES jogoMemoria(idJogoMemoria)
 );
+
+*/
