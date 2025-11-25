@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Need For Speed</title>
-    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/quiz.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="shortcut icon" href="assets/logos/logo_letra_branca-sem_fundo.png" type="image/x-icon">
 </head>
 <body>
-
-    <div class="main">
 
         <!-- ===== HEADER ====== -->
         <div class="header">
@@ -26,6 +24,75 @@
                 <a id="quiz">Quiz</a>
             </div>
         </div>
+
+        <!-- ===== START SCREEN ====== -->
+        <div class="back-form">
+            <div class="start-form">
+                <h1>Bem vindo!<br>Deseja iniciar o quiz?</h1>
+            </div>
+
+            <div class="start-button">
+                <input type="button" class="start-button" onclick="entrar()" value="Iniciar agora!">
+            </div>
+        </div>
+
+
+    <div class="main">
+        
+        <!-- ===== CONTENT ====== -->
+         <div class="content">
+            <div class="quiz-left">
+
+                <div class="title">
+                    <h1>Quiz: Need For Speed</h1>
+                </div>
+
+                <div class="image">
+                    <div id="div_img"></div>
+                </div>
+
+            </div>
+
+            <div class="quiz-right">
+
+        <!-- ===== FORMS ====== -->
+            <div class="form">
+                <div class="question">
+                    <div id="div_mensagem" class="div-mensagem"></div>
+                </div>
+
+                <div id="div_options">
+
+                    <div class="opt1">
+                        <input onchange="alternativa_a()" type="radio" id="opt1" name="options" value="opt1">
+                        <label for="opt1" id="lbl_1"></label><br>
+                    </div>
+
+                    <div class="opt2">
+                        <input onchange="alternativa_b()" type="radio" id="opt2" name="options" value="opt2">
+                        <label for="opt2" id="lbl_2"></label><br>
+                    </div>
+
+                    <div class="opt3">
+                        <input onchange="alternativa_c()" type="radio" id="opt3" name="options" value="opt3">
+                        <label for="opt3" id="lbl_3"></label><br>
+                    </div>
+
+                    <div class="opt4">
+                        <input onchange="alternativa_d()" type="radio" id="opt4" name="options" value="opt4">
+                        <label for="opt4" id="lbl_4"></label><br>
+                    </div>
+                </div>
+
+                <div class="button">
+                    <input type="button" id="btn_retorna" onclick="retorna()" value="Retorna">
+                    <input type="button" id="btn_avanca" onclick="avanca()" value="Próximo">
+                </div>
+
+            </div>
+            </div>
+
+         </div>
 
     </div>
 
