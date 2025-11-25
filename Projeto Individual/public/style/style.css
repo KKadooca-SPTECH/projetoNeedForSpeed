@@ -39,7 +39,7 @@ h3 {
 }
 
 /* ===== TEXT ===== */
-p {
+p, .div-mensagem {
     color: #F4F4F4;
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
