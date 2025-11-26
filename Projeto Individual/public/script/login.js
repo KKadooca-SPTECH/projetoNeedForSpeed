@@ -5,19 +5,14 @@ function register() {
 /* ===== REDIRECT TO THE QUIZ ===== */
     function redirect_quiz() {
 
-      if (sessionStorage.ID_USUARIO == null) {
+        if (sessionStorage.ID_USUARIO == null) {
+          alert("Você deve fazer o login para realizar o quiz! Clique em Ok...");
+        }
 
-        setTimeout(() => {
-          alert("Você deve estar logado antes de responder ao quiz! Redirecionando ao login...");
-
-            window.location = "login.html";
-        }, "2000");
-
-      } else {
-
-        setTimeout(() => {
-            window.location = "quiz.html";
-        }, "2000");
+         else {
+            setTimeout(() => {
+                window.location = "quiz.html";
+            }, "2000");
 
       }
     }
@@ -57,21 +52,14 @@ function login() {
                     sessionStorage.ID_USUARIO = json.idUser;
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.TENTATIVAS = json.tentativas;
                 });
 
-                if (emailVar.includes("@suporte.nfs")) {
                     alert("Login realizado com sucesso! Redirecionando para a dashboard...");
 
                     setTimeout(() => {
                         window.location = "dashboard.html";
                     }, "2000");
-                } else {
-                    alert("Login realizado com sucesso! Redirecionando para os jogos...");
-
-                    setTimeout(() => {
-                        window.location = "quiz.html";
-                    }, "2000");
-                }
 
             } else {
 

@@ -52,19 +52,9 @@ function login() {
         alert("Erro: insira um endereço de email válido!");
     } else if ( senhaVar != confirmacaoSenhaVar ) {
         alert("Erro: As senhas não confirmam!");
-    } /* else if ( 
-              (senhaVar == senhaMaiuscula) || 
-              (senhaVar == senhaMinuscula) ||
-              (!senhaVar.includes(0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9)) ||
-              (!senhaVar.includes('!' || '@' || '#' || '$' || '%' || '&'))
-            ) {
-        alert(`
-              Erro: A senha deve conter ao menos: \n
-              -> Letras maiúsculas e minúsculas;
-              -> Um caractere numerico;
-              -> Um caractere especial: (!, @, #, $, %, &).
-              `);
-    } */ else {
+    } else if ( senhaVar.length <= 8 ) {
+        alert("Alerta de segurança: A senha deve conter ao menos 8 caracteres!");
+    } else {
 
     fetch("/usuarios/cadastrar", {
       method: "POST",
