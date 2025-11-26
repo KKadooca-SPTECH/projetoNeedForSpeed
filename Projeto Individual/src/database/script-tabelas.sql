@@ -1,11 +1,11 @@
-CREATE USER 'NFS'@'%' IDENTIFIED BY "!NeedForSpeed100";
-GRANT SELECT ON NFS.* TO 'NFS'@'%';
-GRANT INSERT ON NFS.* TO 'NFS'@'%';
-FLUSH PRIVILEGES;
+-- CREATE USER 'NFS'@'%' IDENTIFIED BY "!NeedForSpeed100";
+-- GRANT SELECT ON NFS.* TO 'NFS'@'%';
+-- GRANT INSERT ON NFS.* TO 'NFS'@'%';
+-- FLUSH PRIVILEGES;
 
 CREATE DATABASE NFS;
 USE NFS;
-
+INSERT INTO usuario VALUES (DEFAULT, 'SLA', 'SLA', 'SLA');
 CREATE TABLE usuario (
 	idUser INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(15) NOT NULL UNIQUE,
@@ -36,17 +36,20 @@ INSERT INTO quiz (titulo) VALUES
 	('Quiz #1');
 
 CREATE TABLE tentativasQuiz (
+	idTentativa INT PRIMARY KEY AUTO_INCREMENT,
 	idUser INT,
     idQuiz INT,
     tentativas INT,
     acertos INT,
     erros INT,
-    PRIMARY KEY (idUser, idQuiz),
 		FOREIGN KEY (idUser)
 			REFERENCES usuario(idUser),
 		FOREIGN KEY (idQuiz)
 			REFERENCES quiz(idQuiz)
 );
+
+INSERT INTO tentativasQuiz VALUES (DEFAULT, 1, 1, 2, 3, 4);
+
 
 CREATE TABLE questao (
 	idQuestao INT PRIMARY KEY AUTO_INCREMENT,
@@ -67,7 +70,7 @@ INSERT INTO questao (titulo,pontuacao,idQuiz) VALUES
 	('Qual o jogo mais bem avaliado da franquia?',1,1),
 	('Qual dos seguintes jogos se passa totalmente no período noturno?',1,1),
 	('Em qual jogo da franquia surgiu, nos consoles, o modo de perseguição, onde você poderia ser optar por ser o policial ou o criminoso?',1,1),
-	('A qual jogo da franquia pertence o banner ao lado?',1,1),
+	('A qual jogo da franquia pertence o banner ao lado?',1,1);
 
 CREATE TABLE alternativas (
 	idAlternativa INT AUTO_INCREMENT,
