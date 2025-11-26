@@ -13,110 +13,7 @@
     flex-direction: row;
     height: 100%;
     width: 100%;
-}
-
-/* ===== SIDE BAR ===== */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    background-color: #000;
-    align-items: center;
-    height: 100%;
-    width: 20%;
-    border-right: 2px solid #fff;
-}
-
-.banner {
-    height: auto;
-    width: 100%;
-    position: static;
-    border-bottom: 7px solid #F2E601;
-}
-
-.banner img {
-    height: 100%;
-    width: 100%;
-}
-
-.sidebar .text {
-    padding-top: 30px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.welcome {
-    height: 100%;
-    width: 100%;
     text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 25%;
-}
-
-.quiz {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: #797979;
-    color: #000;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    font-size: 1em;
-    height: 70px;
-    width: 100%;
-    border-bottom: 4px solid #161616;
-    color: #fff;
-
-    cursor: pointer;
-}
-
-.quiz:hover {
-    background-color: #e9e14f;
-    color: #000;
-}
-
-.jogomemoria {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: #797979;
-    color: #000;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    font-size: 1em;
-    height: 70px;
-    width: 100%;
-    padding: 0 22px;
-    border: none;
-    color: #fff;
-
-    cursor: pointer;
-}
-
-.jogomemoria:hover {
-    background-color: #e9e14f;
-    color: #000;
-}
-
-.logo-sidebar {
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-}
-
-.logo-sidebar img {
-    height: auto;
-    width: 80%;
 }
 
 /* ===== DASHBOARD ===== */
@@ -181,7 +78,7 @@
 
 /* ===== GRAPHS ===== */
 .graph-quiz {
-    width: 75%;
+    width: 45%;
 }
 
 .graph-quiz h1 {

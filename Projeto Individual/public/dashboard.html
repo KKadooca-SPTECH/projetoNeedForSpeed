@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="style/dashboard.css">
     <link rel="shortcut icon" href="assets/logos/logo_letra_branca-sem_fundo.png" type="image/x-icon">
 
+    <!-- Incluindo a biblioteca Chart.js para desenhar gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
-<body>
+<body onload="obterDados()">
 
 <div class="main">
 
@@ -20,6 +23,7 @@
             <a href="#"><img class="shortcut_header" src="./assets/material-icons/help_sem_fundo.png" alt="help_sem_fundo"></a>
             <a href="index.html"><img class="logo-header" src="./assets/logos/logo_letra_branca-sem_fundo.png" alt="Logo_NFS"></a>
         </div>
+        
 
     <!-- ===== SIDE BAR ===== -->
      <div class="content">
@@ -30,14 +34,14 @@
 
             <div class="text">
                 <div class="welcome">
-                    <h3>Seja bem vindo,<br><div id="username">teste</div></h3>
+                    <h3>Seja bem vindo,<br><div id="username"></div></h3>
                 </div>
             </div>
 
             <div class="buttons">
+                <a href="#"><div class="dash-button">Dashboard</div></a>
                 <a href="quiz.html"><div class="quiz">Quiz</div></a>
-
-                <a href="#"><div class="jogomemoria">Jogo da Memória</div></a>
+                <a href="index.html"><div class="exit">Sair</div></a>
             </div>
  
             <div class="logo-sidebar">
@@ -52,24 +56,24 @@
         <div class="dash-quiz">
             <div class="kpi-1">
                 <div class="kpi-quiz">
-                    <p>KPI's - Quiz</p>
+                    <p>Tempo<br>em tentativas<p>
                 </div>
 
                 <div class="kpi-correct-asw">
-                    <p class="text">Acertos:</p>
-                    <p class="number">111</p>
+                    <p class="text">Melhor tempo:</p>
+                    <p id="melhor_tempo" class="number">02:53</p>
                 </div>
 
                 <div class="kpi-wrong-asw">
-                    <p class="text">Erros:</p>
-                    <p class="number">111</p>
+                    <p class="text">Pior tentativa:</p>
+                    <p id="pior_tentativa" class="number">1</p>
                 </div>
             </div>
 
             <!-- === GRAPHS QUIZ === -->
             <div class="graph-quiz">
-                <h1>Gráfico 1: Média de acertos no quiz</h1>
-                <canvas id="graph1"></canvas>
+                <h3>Gráfico 1: Tempo levado por <br>tentativa</h3>
+                <canvas id="linha"></canvas>
             </div>
 
         </div>
@@ -78,24 +82,24 @@
         <div class="dash-jogomemoria">
             <div class="kpi-2">
                 <div class="kpi-jogomemoria">
-                    <p>KPIs - Jogo da <br>Memória</p>
+                    <p>Média por <br>tentativa: </p>
                 </div>
 
                 <div class="kpi-correct-asw">
-                    <p class="text">Vitórias</p>
-                    <p class="number">111</p>
+                    <p class="text">Acertos:</p>
+                    <p id="acertos" class="number">7,1</p>
                 </div>
 
                 <div class="kpi-wrong-asw">
-                    <p class="text">Derrotas</p>
-                    <p class="number">111</p>
+                    <p class="text">Erros:</p>
+                    <p id="erros" class="number"></p>
                 </div>
             </div>
 
             <!-- === GRAPHS QUIZ === -->
             <div class="graph-quiz">
-                <h1>Gráfico 2: Vitórias e derrotas -<br>Jogo da Memória</h1>
-                <canvas id="graph2"></canvas>
+                <h3>Gráfico 2: Respostas corretas por <br>tentativa</h3>
+                <canvas id="barra"></canvas>
             </div>
      </div>
 
@@ -103,7 +107,6 @@
     
      </div>
     
-</div>
 
 </body>
 </html>
