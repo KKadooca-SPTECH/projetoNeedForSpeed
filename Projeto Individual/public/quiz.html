@@ -10,25 +10,43 @@
 </head>
 <body>
 
-        <!-- ===== HEADER ====== -->
-        <div class="header">
-            <div class="grey-head">
-                <a href="#"><img class="shortcut_header" src="./assets/material-icons/help_sem_fundo.png" alt="help_sem_fundo"></a>
-                <a href="index.html"><img class="logo-header" src="./assets/logos/logo_letra_branca-sem_fundo.png" alt="Logo_NFS"></a>
+        <!-- ===== HEADER ===== -->
+    <div class="header">
+        <div class="dash-black-head">
+            <a href="#"><img class="shortcut_header" src="./assets/material-icons/help_sem_fundo.png" alt="help_sem_fundo"></a>
+            <a href="index.html"><img class="logo-header" src="./assets/logos/logo_letra_branca-sem_fundo.png" alt="Logo_NFS"></a>
+        </div>
+    </div>
+
+        <!-- ===== SIDE BAR ===== -->
+     <div class="content-screen">
+        <div class="sidebar">
+            <div class="banner">
+                <img src="assets/banners/background_gif.gif" alt="unbound_gif">
             </div>
 
-            <div class="black-head">
-                <a id="home" href="index.html">Home</a>
-                <a id="jogos" href="allgames.html">Jogos</a>
-                <a id="avaliacoes" href="#">Avaliações</a>
-                <a id="quiz">Quiz</a>
+            <div class="text">
+                <div class="welcome">
+                    <h3>Deseja iniciar o quiz,<br><div id="username"></div></h3>
+                </div>
             </div>
-        </div>
+
+            <div class="buttons">
+                <a href="dashboard.html"><div class="dash-button">Dashboard</div></a>
+                <a href="#"><div class="quiz">Quiz</div></a>
+                <a href="index.html" onclick="sair()"><div class="exit">Sair</div></a>
+            </div>
+ 
+            <div class="logo-sidebar">
+                <img src="assets/logos/logo_letra_branca-sem_fundo.png" alt="logo_letra_branca-sem_fundo">
+            </div>
+
+     </div>
 
         <!-- ===== START SCREEN ====== -->
         <div class="back-form">
             <div class="start-form">
-                <h1>Bem vindo!<br>Deseja iniciar o quiz?</h1>
+                <h1>Bem vindo!<br>Clique     para iniciar: </h1>
             </div>
 
             <div class="start-button">
@@ -44,7 +62,7 @@
             <div class="quiz-left">
 
                 <div class="title">
-                    <h1>Quiz: Need For Speed</h1>
+                    <h2>Quiz: Need For Speed</h2>
                 </div>
 
                 <div class="image">
@@ -93,6 +111,8 @@
             </div>
 
          </div>
+
+    </div>
 
     </div>
 

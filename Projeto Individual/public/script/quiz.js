@@ -1,16 +1,22 @@
-/* ===== DISPLAY QUIZ ===== */
+username.innerHTML = sessionStorage.NOME_USUARIO + '?';
 
+/* ===== DISPLAY QUIZ ===== */
 var startscreen = document.querySelector('.back-form');
 var content = document.querySelector('.content');
 
 var retornar = document.getElementById('btn_retorna');
 var avancar = document.getElementById('btn_avanca');
 
+var tentativas = sessionStorage.TENTATIVAS;
+
 var selecionou_var = false;
 
 var lista_respostas = [];
+var lista_gabarito = ['b','d','a','d','a','c','b','b','d','b']
 
 var i = 0;
+let segundos = 0;
+var contar = false;
 
 var questao1 = `Em que ano foi lançado o primeiro exemplar da saga Need For Speed?`;
 var option_a1 = `1995`;
@@ -79,7 +85,25 @@ function entrar() {
 
     var i = 0;
 
+    contar = true;
+
+    contador();
     verifica();
+}
+
+function sair() {
+    sessionStorage.NOME_USUARIO = '';
+    sessionStorage.EMAIL_USUARIO = '';
+    sessionStorage.ID_USUARIO = '';
+}
+
+function contador() {
+
+    const intervalo = setInterval(() => {
+        if (i >= 10) clearInterval(intervalo);
+
+        segundos++;
+    }, 1000);
 }
 
 function alternativa_a() {
@@ -117,8 +141,10 @@ function alternativa_d() {
 
 function avanca() {
 
+    i++;
+
     if (selecionou_var == true) {
-        if (i < 9) {
+        if (i <= 10) {
             if (selecionou_a == true) {
                 lista_respostas.push("a");
             }
@@ -132,17 +158,57 @@ function avanca() {
                 lista_respostas.push("d");
             }
 
-            i++;
-            verifica();
+            if (i == 9) {
+                btn_avanca.value = "Enviar";
+            }
+
+            if (i < 10) {
+                verifica();
+            } else {
+
+                // Finalizar questionário
+                var acerto = 0;
+                var erro = 0;
+
+                for (var resposta = 0; resposta < lista_respostas.length; resposta++) {
+                    if (lista_respostas[resposta] == lista_gabarito[resposta]) {
+                        acerto++
+                    }
+                    else {
+                        erro++;
+                    }
+                }
+
+                tentativas++;
+
+                fetch('/quiz/registrar', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        user_id: sessionStorage.ID_USUARIO,
+                        acertos: acerto,
+                        erros: erro,
+                        tempo: segundos,
+                        tentativas: tentativas
+                    })
+                })
+
+
+                alert("Quiz finalizado! Visualize seus resultados na dashboard...");
+
+                    setTimeout(() => {
+                        window.location = "dashboard.html";
+                    }, "1000");
+
+            }
 
             selecionou_var = false;
             selecionou_a = false;
             selecionou_b = false;
             selecionou_c = false;
             selecionou_a = false;
-        }
-        else {
-            // Finalizar questionário
         }
     }
     else {
@@ -152,87 +218,87 @@ function avanca() {
 
 function retorna() {
     if (i >= 0) i--;
+    contador();
     verifica();
-
     lista_respostas.length = lista_respostas.length - 1;
 }
 
 function verifica() {
 
-    div_img.innerHTML = `<img src="assets/material-icons/interrogation-sem-fundo.png" alt="img-quiz"></img>`;     
+    div_img.innerHTML = `<img src="assets/material-icons/interrogation-sem-fundo.png" alt="img-quiz"></img>`;
 
-        if (i == 0) {
-            div_mensagem.innerHTML = `Questão ${i+1}: ${questao1}`;
-            lbl_1.innerHTML = option_a1;
-            lbl_2.innerHTML = option_a2;
-            lbl_3.innerHTML = option_a3;
-            lbl_4.innerHTML = option_a4;
-        }
-        else if (i == 1) {
-            div_mensagem.innerHTML = `Questão ${i+1}: ${questao2}`;
-            lbl_1.innerHTML = option_b1;
-            lbl_2.innerHTML = option_b2;
-            lbl_3.innerHTML = option_b3;
-            lbl_4.innerHTML = option_b4;
-        }
-        else if (i == 2) {
-            div_mensagem.innerHTML = `Questão ${i+1}: ${questao3}`;
-            lbl_1.innerHTML = option_c1;
-            lbl_2.innerHTML = option_c2;
-            lbl_3.innerHTML = option_c3;
-            lbl_4.innerHTML = option_c4;
-        }
-        else if (i == 3) {
-            div_mensagem.innerHTML = `Questão ${i+1}: ${questao4}`;
-            lbl_1.innerHTML = option_d1;
-            lbl_2.innerHTML = option_d2;
-            lbl_3.innerHTML = option_d3;
-            lbl_4.innerHTML = option_d4;
-        }
-        else if (i == 4) {
-            div_mensagem.innerHTML = `Questão ${i+1}: ${questao5}`;
-            lbl_1.innerHTML = option_e1;
-            lbl_2.innerHTML = option_e2;
-            lbl_3.innerHTML = option_e3;
-            lbl_4.innerHTML = option_e4;
+    if (i == 0) {
+        div_mensagem.innerHTML = `Questão ${i + 1}: ${questao1}`;
+        lbl_1.innerHTML = option_a1;
+        lbl_2.innerHTML = option_a2;
+        lbl_3.innerHTML = option_a3;
+        lbl_4.innerHTML = option_a4;
+    }
+    else if (i == 1) {
+        div_mensagem.innerHTML = `Questão ${i + 1}: ${questao2}`;
+        lbl_1.innerHTML = option_b1;
+        lbl_2.innerHTML = option_b2;
+        lbl_3.innerHTML = option_b3;
+        lbl_4.innerHTML = option_b4;
+    }
+    else if (i == 2) {
+        div_mensagem.innerHTML = `Questão ${i + 1}: ${questao3}`;
+        lbl_1.innerHTML = option_c1;
+        lbl_2.innerHTML = option_c2;
+        lbl_3.innerHTML = option_c3;
+        lbl_4.innerHTML = option_c4;
+    }
+    else if (i == 3) {
+        div_mensagem.innerHTML = `Questão ${i + 1}: ${questao4}`;
+        lbl_1.innerHTML = option_d1;
+        lbl_2.innerHTML = option_d2;
+        lbl_3.innerHTML = option_d3;
+        lbl_4.innerHTML = option_d4;
+    }
+    else if (i == 4) {
+        div_mensagem.innerHTML = `Questão ${i + 1}: ${questao5}`;
+        lbl_1.innerHTML = option_e1;
+        lbl_2.innerHTML = option_e2;
+        lbl_3.innerHTML = option_e3;
+        lbl_4.innerHTML = option_e4;
 
-            div_img.innerHTML = `<img src="assets/carros/bmw_m3_most-wanted.jpg" alt="img-quiz"></img>`;
-        }
-        else if (i == 5) {
-            div_mensagem.innerHTML = `Questão ${i+1}: ${questao6}`;
-            lbl_1.innerHTML = option_f1;
-            lbl_2.innerHTML = option_f2;
-            lbl_3.innerHTML = option_f3;
-            lbl_4.innerHTML = option_f4;
-        }
-        else if (i == 6) {
-            div_mensagem.innerHTML = `Questão ${i+1}: ${questao7}`;
-            lbl_1.innerHTML = option_g1;
-            lbl_2.innerHTML = option_g2;
-            lbl_3.innerHTML = option_g3;
-            lbl_4.innerHTML = option_g4;
-        }
-        else if (i == 7) {
-            div_mensagem.innerHTML = `Questão ${i+1}: ${questao8}`;
-            lbl_1.innerHTML = option_h1;
-            lbl_2.innerHTML = option_h2;
-            lbl_3.innerHTML = option_h3;
-            lbl_4.innerHTML = option_h4;
-        }
-        else if (i == 8) {
-            div_mensagem.innerHTML = `Questão ${i+1}: ${questao9}`;
-            lbl_1.innerHTML = option_i1;
-            lbl_2.innerHTML = option_i2;
-            lbl_3.innerHTML = option_i3;
-            lbl_4.innerHTML = option_i4;
-        }
-        else if (i == 9) {
-            div_mensagem.innerHTML = `Questão ${i+1}: ${questao10}`;
-            lbl_1.innerHTML = option_j1;
-            lbl_2.innerHTML = option_j2;
-            lbl_3.innerHTML = option_j3;
-            lbl_4.innerHTML = option_j4;
+        div_img.innerHTML = `<img src="assets/carros/bmw_m3_most-wanted.jpg" alt="img-quiz"></img>`;
+    }
+    else if (i == 5) {
+        div_mensagem.innerHTML = `Questão ${i + 1}: ${questao6}`;
+        lbl_1.innerHTML = option_f1;
+        lbl_2.innerHTML = option_f2;
+        lbl_3.innerHTML = option_f3;
+        lbl_4.innerHTML = option_f4;
+    }
+    else if (i == 6) {
+        div_mensagem.innerHTML = `Questão ${i + 1}: ${questao7}`;
+        lbl_1.innerHTML = option_g1;
+        lbl_2.innerHTML = option_g2;
+        lbl_3.innerHTML = option_g3;
+        lbl_4.innerHTML = option_g4;
+    }
+    else if (i == 7) {
+        div_mensagem.innerHTML = `Questão ${i + 1}: ${questao8}`;
+        lbl_1.innerHTML = option_h1;
+        lbl_2.innerHTML = option_h2;
+        lbl_3.innerHTML = option_h3;
+        lbl_4.innerHTML = option_h4;
+    }
+    else if (i == 8) {
+        div_mensagem.innerHTML = `Questão ${i + 1}: ${questao9}`;
+        lbl_1.innerHTML = option_i1;
+        lbl_2.innerHTML = option_i2;
+        lbl_3.innerHTML = option_i3;
+        lbl_4.innerHTML = option_i4;
+    }
+    else if (i == 9) {
+        div_mensagem.innerHTML = `Questão ${i + 1}: ${questao10}`;
+        lbl_1.innerHTML = option_j1;
+        lbl_2.innerHTML = option_j2;
+        lbl_3.innerHTML = option_j3;
+        lbl_4.innerHTML = option_j4;
 
-            div_img.innerHTML = `<img src="assets/banners/background_gif.gif" alt="img-quiz"></img>`;
-        }
+        div_img.innerHTML = `<img src="assets/banners/background_gif.gif" alt="img-quiz"></img>`;
+    }
 }
