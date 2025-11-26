@@ -22,7 +22,8 @@ function autenticar(req, res) {
                             email: resultadoAutenticar[0].email,
                             senha: resultadoAutenticar[0].senha,
                             nome: resultadoAutenticar[0].nome,
-                            idUser: resultadoAutenticar[0].idUser
+                            idUser: resultadoAutenticar[0].idUser,
+                            tentativas: resultadoAutenticar[0].tentativas
                         });
 
                     } else if (resultadoAutenticar.length == 0) {
