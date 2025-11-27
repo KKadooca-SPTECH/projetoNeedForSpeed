@@ -44,6 +44,20 @@ function login() {
             })
         }).then(function (resposta) {
 
+            // if (instrucaoSql.includes("null")) {
+            //     fetch("/usuarios/autenticarSemTentativas", {
+            //     method: "POST",
+            //     headers: {
+            //     "Content-Type": "application/json"
+            // },
+            //     body: JSON.stringify({
+            //     emailServer: emailVar,
+            //     senhaServer: senhaVar
+            //     })
+            // }).then(function (respota)) {
+
+            // }
+
             if (resposta.ok) {
                 console.log(resposta);
 
@@ -52,7 +66,6 @@ function login() {
                     sessionStorage.ID_USUARIO = json.idUser;
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.TENTATIVAS = json.tentativas;
                 });
 
                     alert("Login realizado com sucesso! Redirecionando para a dashboard...");
