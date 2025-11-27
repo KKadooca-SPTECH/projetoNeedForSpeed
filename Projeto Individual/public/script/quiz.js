@@ -7,7 +7,7 @@ var content = document.querySelector('.content');
 var retornar = document.getElementById('btn_retorna');
 var avancar = document.getElementById('btn_avanca');
 
-var tentativas = sessionStorage.TENTATIVAS;
+var tentativas = 1;
 
 var selecionou_var = false;
 
@@ -178,8 +178,6 @@ function avanca() {
                         erro++;
                     }
                 }
-
-                tentativas++;
 
                 fetch('/quiz/registrar', {
                     method: "POST",
