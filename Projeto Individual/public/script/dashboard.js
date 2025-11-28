@@ -1,117 +1,140 @@
-username.innerHTML = sessionStorage.NOME_USUARIO;
+var chartLinha = null;
+var chartBarra = null;
 
-function obterDados(){
-  // Aqui seria a função que obteria os dados do banco de dados
-  // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
- 
-  fetch('dashboard/plotarGraficoLinha')
-  .then(function(response){
-    return response.json();
-  })
-  .then(function(data){
-    plotarGraficoLinha(data);
-    plotarGraficoBarra(data);
-  })
-  .catch(function(err){
-    console.log(err);
-  })
+function obterDados() {
 
-  var dados = [{
-    tentativas:'Tentativa 1',
-    acertos: 0
-  },
-  {
-    tentativas:'Tentativa 2',
-    acertos: 2
-  },
-  {
-    tentativas:'Tentativa 3',
-    acertos: 4
-  },
-  {
-    tentativas:'Tentativa 4',
-    acertos: 6
-  },
-  {
-    tentativas:'Tentativa 5',
-    acertos: 8
-  },
-  {
-    tentativas:'Tentativa 6',
-    acertos: 10
-  }]
+  fetch("/dashboard/plotarGraficoLinha", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ idUser: sessionStorage.ID_USUARIO })
+  })
+    .then(r => r.json())
+    .then(dadosLinha => {
 
-  // Chamando a função para plotar o gráfico de linha com os dados
-  plotarGraficoLinha(dados);
-  // Chamando a função para plotar o gráfico de barra com os dados
-  plotarGraficoBarra(dados)
+      fetch("/dashboard/plotarGraficoBarra", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ idUser: sessionStorage.ID_USUARIO })
+      })
+        .then(r => r.json())
+        .then(dadosBarra => {
+          plotarGraficoLinha(dadosLinha);
+          plotarGraficoBarra(dadosBarra);
+          carregarKPIs();
+        });
+    });
 }
 
-// Função para plotar o gráfico de linha
-function plotarGraficoLinha(dados){
+function plotarGraficoLinha(dados) {
+
+  var valores = [];
+  var tentativas = [];
+
+  for (var i = 0; i < dados.length; i++) {
+    valores.push(dados[i].tempo);
+    tentativas.push("Tentativa " + (i + 1));
+  }
+
   
-  // Separando os rótulos (labels) e os dados dos acertos
-  var acertos = [];
-  var tentativas = [];
-
-  // Preenchendo os arrays com os dados
-  for(var i = 0; i < dados.length; i++){
-    acertos.push(dados[i].acertos);
-    tentativas.push(dados[i].tentativas);
+  if (chartLinha != null) {
+    chartLinha.destroy();
   }
 
-  // Capturando o elemento canvas pelo id 
-  var ctx = document.getElementById('linha').getContext('2d');
-  // Criando o gráfico de linha usando o Chart.js
-  var myChart = new Chart(ctx, {
-      type: 'line', // Tipo de gráfico: linha
-      data: { // Dados para o gráfico
-          labels: tentativas, // Rótulos no eixo X
-          datasets: [{ 
-              label: 'Tempo em minutos', // Nome do conjunto de dados
-              data: acertos, // Dados dos acertos
-              backgroundColor: [
-                  '#e9e14f', // Cor de fundo das linhas
-              ],
-              borderColor: [
-                  '#e9e14f', // Cor da borda das linhas
-              ],
-              borderWidth: 1 // Largura da borda das linhas
-          }]
-      },
-  });
-} 
+  var ctx = document.getElementById("linha").getContext("2d");
 
-// Função para plotar o gráfico de barra
-function plotarGraficoBarra(dados){
-
-  var acertos = [];
-  var tentativas = [];
-
-  // Preenchendo os arrays com os dados
-  for(var i = 0; i < dados.length; i++){
-    acertos.push(dados[i].acertos);
-    tentativas.push(dados[i].tentativas);
-  }
-
-  // Capturando o elemento canvas pelo id 
-  var ctx = document.getElementById('barra').getContext('2d');
-  // Criando o gráfico de barra usando o Chart.js
-  var myChart = new Chart(ctx, {
-      type: 'bar', // Tipo de gráfico: barra
-      data: { // Dados para o gráfico
-          labels: tentativas, // Rótulos no eixo X
-          datasets: [{
-              label: 'Acertos', // Nome do conjunto de dados
-              data: acertos, // Dados dos acertos
-              backgroundColor: [
-                  '#e9e14f', // Cor de fundo das barras
-              ],
-              borderColor: [
-                  '#e9e14f', // Cor da borda das barras
-              ],
-              borderWidth: 1 // Largura da borda das barras
-          }]
-      },
+  chartLinha = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: tentativas,
+      datasets: [{
+        label: "Tempo em segundos",
+        data: valores,
+        backgroundColor: '#e9e14f',
+        borderColor: '#e9e14f'
+      }]
+    }
   });
 }
+
+function plotarGraficoBarra(dados) {
+
+  var valores = [];
+  var tentativas = [];
+
+  for (var i = 0; i < dados.length; i++) {
+    valores.push(dados[i].acertos);
+    tentativas.push("Tentativa " + (i + 1));
+  }
+  
+  if (chartBarra != null) {
+    chartBarra.destroy();
+  }
+
+  var ctx = document.getElementById("barra").getContext("2d");
+
+  chartBarra = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: tentativas,
+      datasets: [{
+        label: "Acertos por tentativa",
+        data: valores,
+        backgroundColor: '#e9e14f'
+      }]
+    }
+  });
+}
+
+function carregarKPIs() {
+
+  fetch("/dashboard/KPImelhorTempo", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ idUser: sessionStorage.ID_USUARIO })
+})
+  .then(r => r.json())
+  .then(d => {
+    
+    var total = d[0].melhorTempo;
+    var min = Math.floor(total / 60);
+    var seg = total % 60;
+
+    if (min < 10) {
+      min = "0" + min;
+    }
+
+    if (seg < 10) {
+      seg = "0" + seg;
+    }
+
+    melhor_tempo.innerText = min + ":" + seg;
+  });
+
+
+
+  fetch("/dashboard/KPIpiorTentativa", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ idUser: sessionStorage.ID_USUARIO })
+  })
+    .then(r => r.json())
+    .then(d => { pior_tentativa.textContent = d[0].piorTentativa });
+
+  fetch("/dashboard/KPImediaAcertos", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ idUser: sessionStorage.ID_USUARIO })
+  })
+    .then(r => r.json())
+    .then(d => { acertos.textContent = Number(d[0].mediaAcertos).toFixed(1) });
+
+  fetch("/dashboard/KPImediaErros", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ idUser: sessionStorage.ID_USUARIO })
+  })
+    .then(r => r.json())
+    .then(d => { erros.textContent = Number(d[0].mediaErros).toFixed(1) });
+}
+
+obterDados();

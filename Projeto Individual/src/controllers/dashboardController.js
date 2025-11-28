@@ -1,85 +1,52 @@
 var dashboardModel = require("../models/dashboardModel");
 
+function plotarGraficoLinha(req, res) {
+    var idUser = req.body.idUser;
 
-    function plotarGraficoLinha(req, res) {
-        var tempoServer = req.sql.tempo;
+    dashboardModel.plotarGraficoLinha(idUser)
+        .then(json => res.json(json))
+        .catch(err => res.status(500).json(err));
+}
 
-        dashboardModel.plotarGraficoLinha(tempoServer)
-        .then((json) => {
-            res.json(json)
-        })
-        .catch((err) => {
-            res.status(500).json(err)
-        })
-    }
+function plotarGraficoBarra(req, res) {
+    var idUser = req.body.idUser;
 
+    dashboardModel.plotarGraficoBarra(idUser)
+        .then(json => res.json(json))
+        .catch(err => res.status(500).json(err));
+}
 
-    function plotarGraficoBarra(req, res) {
+function plotarKPImelhorTempo(req, res) {
+    var idUser = req.body.idUser;
 
-        var acertosServer = req.sql.acertos;       
+    dashboardModel.plotarKPImelhorTempo(idUser)
+        .then(json => res.json(json))
+        .catch(err => res.status(500).json(err));
+}
 
-        dashboardModel.plotarGraficoBarra(acertosServer)
-        .then((json) => {
-            res.json(json)
-        })
-        .catch((err) => {
-            res.status(500).json(err)
-        })
+function plotarKPIpiorTentativa(req, res) {
+    var idUser = req.body.idUser;
 
-    }
+    dashboardModel.plotarKPIpiorTentativa(idUser)
+        .then(json => res.json(json))
+        .catch(err => res.status(500).json(err));
+}
 
+function plotarKPImediaAcertos(req, res) {
+    var idUser = req.body.idUser;
 
-    function plotarKPImelhorTempo(req, res) {
-        var melhorTempoServer = req.sql.melhorTempo;       
+    dashboardModel.plotarKPImediaAcertos(idUser)
+        .then(json => res.json(json))
+        .catch(err => res.status(500).json(err));
+}
 
-        dashboardModel.plotarKPImelhorTempo(melhorTempoServer)
-        .then((json) => {
-            res.json(json)
-        })
-        .catch((err) => {
-            res.status(500).json(err)
-        })
-    }
+function plotarKPImediaErros(req, res) {
+    var idUser = req.body.idUser;
 
-
-    function plotarKPIpiorTentativa(req, res) {
-        var piorTentativaServer = req.sql.piorTentativa;       
-
-        dashboardModel.plotarKPIpiorTentativa(piorTentativaServer)
-        .then((json) => {
-            res.json(json)
-        })
-        .catch((err) => {
-            res.status(500).json(err)
-        })
-    }
-
-
-    function plotarKPImediaAcertos(req, res) {
-        var mediaAcertosServer = req.sql.mediaAcertos;
-
-        dashboardModel.plotarKPImediaAcertos(mediaAcertosServer)
-        .then((json) => {
-            res.json(json)
-        })
-        .catch((err) => {
-            res.status(500).json(err)
-        })
-    }
-
-
-    function plotarKPImediaErros(req, res) {
-        var mediaErrosServer = req.sql.mediaErros;
-
-        dashboardModel.plotarKPImediaErros(mediaErrosServer)
-        .then((json) => {
-            res.json(json)
-        })
-        .catch((err) => {
-            res.status(500).json(err)
-        })
-    }
-
+    dashboardModel.plotarKPImediaErros(idUser)
+        .then(json => res.json(json))
+        .catch(err => res.status(500).json(err));
+}
 
 module.exports = {
     plotarGraficoLinha,
